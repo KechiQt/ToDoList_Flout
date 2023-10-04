@@ -15,7 +15,6 @@ namespace ToDoList_Flout.ViewModels
         public IDataStore<Item, int> DataStoreItems => DependencyService.Get<IDataStore<Item, int>>() ?? new DataStoreItems();
         public IDataStore<Category, int> DataStoreCategories => DependencyService.Get<IDataStore<Category, int>>() ?? new DataStoreCategories();
 
-
         bool isBusy = false;
         public bool IsBusy
         {
