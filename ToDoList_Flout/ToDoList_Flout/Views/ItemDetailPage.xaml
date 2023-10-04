@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoList_Flout.Views.ItemDetailPage"
+             Title="{Binding Title}">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Delete" Command="{Binding DeleteCommand}"/>
+        <ToolbarItem Text="Save" Command="{Binding SaveCommand}"/>
+    </ContentPage.ToolbarItems>
+    
+    <ScrollView>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="Task title:" Style="{StaticResource LabelStyle}" />
+            <Entry Text="{Binding Item.Text}" Placeholder="Task name" FontSize="Small" Margin="0, -10, 0, 0"/>
+            
+            <Label Text="What should be done?" Style="{StaticResource LabelStyle}" />
+            <Editor Text="{Binding Item.Description}" Placeholder="Enter the task here." FontSize="Small" Margin="0, -10, 0, 0"/>
+
+            <Label x:Name="label" Text="Select date" Style="{StaticResource LabelStyle}" />
+            <DatePicker Format="D" Date="{Binding Item.Date}" DateSelected="DatePicker_DateSelected" Margin="0, -20, 0, 0">
+            </DatePicker>
+
+            <StackLayout Orientation="Horizontal" Spacing="5" Padding="0">
+                <Label Text="Importance" Style="{StaticResource LabelStyle}" />
+                <Label  Text="{Binding Item.Importance}" FontSize="Medium"/>
+            </StackLayout>
+            <Slider Value="{Binding Item.Importance}" Minimum="0" Maximum="5" ValueChanged="Slider_ValueChanged" Margin="0, -10, 0, 0" MinimumTrackColor="DeepPink" MaximumTrackColor="Crimson" />
+
+            <Label  Text="Category" Style="{StaticResource LabelStyle}" />
+            <Picker x:Name="PickerCategory" SelectedIndexChanged="PickerCategory_SelectedIndexChanged" SelectedItem="{Binding Item.Category}">
+                <Picker.Items>
+                    <x:String>Defaut</x:String>
+                    <x:String>Personal</x:String>
+                    <x:String>Purchases</x:String>
+                    <x:String>Work</x:String>
+                    <x:String>Wish List</x:String>
+                    <x:String>Study</x:String>
+                </Picker.Items>
+            </Picker>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
