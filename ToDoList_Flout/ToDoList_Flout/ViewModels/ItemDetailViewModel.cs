@@ -19,11 +19,18 @@ namespace ToDoList_Flout.ViewModels
             Item = item;
 
             DeleteCommand = new Command(async () => await Delete());
+            SaveCommand = new Command(async () => await Save());
         }
 
         async Task Delete()
         {
+            await DataStoreItems.DeleteItemAsync(Item.Id);
+        }
+
+        async Task Save()
+        {
             await DataStoreItems.UpdateItemAsync(Item);
         }
+
     }
 }
