@@ -48,7 +48,7 @@ namespace ToDoList_Flout.ViewModels
 
             try
             {
-                Items.Clear();
+                //Items.Clear();
                 var items = await DataStoreCategories.GetItemsAsync(true);
                 foreach (var item in items)
                 {

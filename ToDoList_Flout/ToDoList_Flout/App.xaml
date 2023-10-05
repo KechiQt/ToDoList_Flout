@@ -16,8 +16,17 @@
             <Style x:Key="LabelStyle" TargetType="Label">
                 <Setter Property="TextColor" Value="{StaticResource Key=HeaderTextColor}" />
                 <Setter Property="FontSize" Value="{StaticResource Key=HeaderFontSize}" />
-                <Setter Property="FontAttributes" Value="Bold"/>
+                <!--<Setter Property="FontAttributes" Value="Bold"/>-->
             </Style>
+
+            <Color x:Key="PageBackgroundColor">Black</Color>
+            <Color x:Key="NavigationBarColor">Teal</Color>
+            <Color x:Key="PrimaryColor">Teal</Color>
+            <Color x:Key="SecondaryColor">White</Color>
+            <Color x:Key="PrimaryTextColor">White</Color>
+            <Color x:Key="SecondaryTextColor">White</Color>
+            <Color x:Key="TertiaryTextColor">WhiteSmoke</Color>
+            <Color x:Key="TransparentColor">Transparent</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -56,5 +56,11 @@ namespace ToDoList_Flout.Views
                     Item.Category = picker.Items[selectedIndex];
         }
 
+        async void GoToBack(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
+
+
     }
 }

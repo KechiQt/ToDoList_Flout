@@ -15,11 +15,11 @@ namespace ToDoList_Flout.Services
             items = new List<Category>();
             var mockItems = new List<Category>
             {
-                new Category { Id= 0, Title = "Defaut", Description = "Defaut Description",  SuccessRate = 50},
-                new Category { Id= 1, Title = "Personal", Description = "Personal Description",  SuccessRate = 50},
-                new Category { Id= 2, Title = "Purchases", Description = "Purchases Description",  SuccessRate = 50},
-                new Category { Id= 3, Title = "Wish List", Description = "Wish List Description",  SuccessRate = 50},
-                new Category { Id= 4, Title = "Study", Description = "Study Description",  SuccessRate = 50}
+                //new Category { Id= 0, Title = "Defaut", Description = "Defaut Description",  SuccessRate = 50},
+                //new Category { Id= 1, Title = "Personal", Description = "Personal Description",  SuccessRate = 50},
+                //new Category { Id= 2, Title = "Purchases", Description = "Purchases Description",  SuccessRate = 50},
+                //new Category { Id= 3, Title = "Wish List", Description = "Wish List Description",  SuccessRate = 50},
+                //new Category { Id= 4, Title = "Study", Description = "Study Description",  SuccessRate = 50}
             };
 
             foreach (var item in mockItems)

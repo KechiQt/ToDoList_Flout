@@ -51,17 +51,37 @@ namespace ToDoList_Flout.Services
 
         public async Task<bool> UpdateItemAsync(Item item)
         {
-            var oldItem = items.Where((Item arg) => arg.Id == item.Id).FirstOrDefault();
-            items.Remove(oldItem);
-            items.Add(item);
+            var itemToUpdate = (await firebase
+                .Child("Items_" + databaseId)
+                .OnceAsync<Item>()).Where(x => x.Object.Id == item.Id).FirstOrDefault();
+            
+            if (itemToUpdate != null)
+            {
+                await firebase
+                  .Child("Items_" + databaseId)
+                  .Child(itemToUpdate.Key)
+                  .PutAsync(item);
+            }
+
+
 
             return await Task.FromResult(true);
         }
 
         public async Task<bool> DeleteItemAsync(int id)
         {
-            var oldItem = items.Where((Item arg) => arg.Id == id).FirstOrDefault();
-            items.Remove(oldItem);
+            var itemToDelete = (await firebase
+                .Child("Items_" + databaseId)
+                .OnceAsync<Item>()).Where(x => x.Object.Id == id).FirstOrDefault();
+
+            if (itemToDelete != null)
+            {
+                await firebase
+                  .Child("Items_" + databaseId)
+                  .Child(itemToDelete.Key)
+                  .DeleteAsync();
+            }
+
 
             return await Task.FromResult(true);
         }

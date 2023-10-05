@@ -44,7 +44,7 @@
                                 LineBreakMode="MiddleTruncation"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
                                 FontSize="13" />
-                                <Label Text="{Binding Date}" 
+                                <Label Text="{Binding Date, StringFormat=' {0:dd.MM.yyyy} '}" 
                                 LineBreakMode="NoWrap"
                                 Style="{DynamicResource ListItemDetailTextStyle}"
                                 TextColor="#2196F3"
