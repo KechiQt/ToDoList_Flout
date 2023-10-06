@@ -43,7 +43,7 @@ namespace ToDoList_Flout.Views
 
         public void Slider_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-
+            LabelImportance.Text = Math.Round(e.NewValue).ToString();
         }
 
         void PickerCategory_SelectedIndexChanged(object sender, EventArgs e)

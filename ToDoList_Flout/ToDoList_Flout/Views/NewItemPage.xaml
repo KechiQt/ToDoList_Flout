@@ -37,7 +37,7 @@
                     <Label Text="Importance" Style="{StaticResource LabelStyle}" />
                     <Label x:Name="LabelImportance" Text="{Binding Item.Importance}" FontSize="{StaticResource HeaderFontSize}" TextColor="White" Margin="5, 0, 0, 0"/>
                 </StackLayout>
-                <Slider Value="{Binding Item.Importance}" Minimum="0" Maximum="5" ValueChanged="Slider_ValueChanged" Margin="0, -10, 0, 0" MinimumTrackColor="DeepPink" MaximumTrackColor="#30ba9f" ThumbColor="DeepPink"/>
+                <Slider Value="{Binding Item.Importance}" Minimum="0" Maximum="5" ValueChanged="Slider_ValueChanged" Margin="0, -10, 0, 0"/>
 
                 <Label  Text="Category" Style="{StaticResource LabelStyle}"/>
                 <Picker x:Name="PickerCategory" SelectedIndexChanged="PickerCategory_SelectedIndexChanged" >

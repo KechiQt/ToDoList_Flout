@@ -5,13 +5,16 @@
     <Application.Resources>
         <ResourceDictionary>
             <!--Global Styles-->
-            <Color x:Key="NavigationPrimary">#2196F3</Color>
+
+            <Color x:Key="NavigationPrimary">#4c3246</Color>
             <Style TargetType="NavigationPage">
                 <Setter Property="BarBackgroundColor" Value="{StaticResource NavigationPrimary}" />
                 <Setter Property="BarTextColor" Value="White" />
             </Style>
 
-            <Color x:Key="HeaderTextColor">#00558c</Color>
+            <Color x:Key="HeaderTextColor">#c88fbb</Color>
+            <Color x:Key="LightGreanColor">#4c3246</Color>
+
             <x:Double x:Key="HeaderFontSize">18</x:Double>
             <Style x:Key="LabelStyle" TargetType="Label">
                 <Setter Property="TextColor" Value="{StaticResource Key=HeaderTextColor}" />
@@ -19,14 +22,36 @@
                 <!--<Setter Property="FontAttributes" Value="Bold"/>-->
             </Style>
 
-            <Color x:Key="PageBackgroundColor">Black</Color>
-            <Color x:Key="NavigationBarColor">Teal</Color>
-            <Color x:Key="PrimaryColor">Teal</Color>
-            <Color x:Key="SecondaryColor">White</Color>
-            <Color x:Key="PrimaryTextColor">White</Color>
-            <Color x:Key="SecondaryTextColor">White</Color>
-            <Color x:Key="TertiaryTextColor">WhiteSmoke</Color>
-            <Color x:Key="TransparentColor">Transparent</Color>
+            <Color x:Key="NeutralDark">#1c1c1d</Color>
+
+            <Style TargetType="Page" ApplyToDerivedTypes="True">
+                <Setter Property="BackgroundColor" Value="{StaticResource NeutralDark}"/>
+            </Style>
+
+            <Style TargetType="Slider" ApplyToDerivedTypes="True">
+                <Setter Property="MinimumTrackColor" Value="{StaticResource Key=LightGreanColor}"/>
+                <Setter Property="MaximumTrackColor" Value="{StaticResource Key=LightGreanColor}"/>
+                <Setter Property="ThumbColor" Value="{StaticResource Key=LightGreanColor}"/>
+            </Style>
+
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="#dbdbdb" />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="{StaticResource Key=LightGreanColor}"/>
+            </Style>
+  
+            <Style TargetType="Editor" ApplyToDerivedTypes="True">
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+
+            <Style TargetType="Entry" ApplyToDerivedTypes="True">
+                <Setter Property="TextColor" Value="White"/>
+            </Style>
+
+        
         </ResourceDictionary>
     </Application.Resources>
 </Application>

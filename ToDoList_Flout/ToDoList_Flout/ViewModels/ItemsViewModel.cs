@@ -28,8 +28,7 @@ namespace ToDoList_Flout.ViewModels
 
             MoveToTopCommand = new Command(MoveToTop);
             MoveToBottomCommand = new Command(MoveToBottom);
-            RemoveCommand = new Command(Remove);
-
+            RemoveCommand = new Command<object>(async (o) => await Delete(o));
 
             MessagingCenter.Subscribe<NewItemPage, Item>(this, "AddItem", async (obj, item) =>
             {
@@ -87,13 +86,12 @@ namespace ToDoList_Flout.ViewModels
                 Items.Move(oldIndex, oldIndex + 1);
         }
 
-        private void Remove(object categoryObj)
+        async Task Delete(object ItemObj)
         {
-            Item Item = categoryObj as Item;
+            Item Item = ItemObj as Item;
             if (Item == null) return;
 
-            DataStoreCategories.DeleteItemAsync(Items.IndexOf(Item));
-            Items.Remove(Item);
+            await DataStoreItems.DeleteItemAsync(Items.IndexOf(Item)+1);
         }
 
         public int GetCurrentID()
@@ -102,8 +100,6 @@ namespace ToDoList_Flout.ViewModels
 
             if (Items.Count > 0)
                 maxID = Items.Max(x => x.Id);
-
-
 
             return maxID;
         }
