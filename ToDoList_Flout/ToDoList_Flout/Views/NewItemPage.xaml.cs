@@ -73,8 +73,14 @@ namespace ToDoList_Flout.Views
 
         async void Save_Clicked(object sender, EventArgs e)
         {
-            MessagingCenter.Send(this, "AddItem", Item);
-            await Navigation.PopModalAsync();
+            if (string.IsNullOrWhiteSpace(Item.Text) != true) {
+                MessagingCenter.Send(this, "AddItem", Item);
+                await Navigation.PopModalAsync();
+            }
+            else
+            {
+                await DisplayAlert("Alert", "Fill in the task name!", "OK");  
+            }
         }
 
         async void Cancel_Clicked(object sender, EventArgs e)

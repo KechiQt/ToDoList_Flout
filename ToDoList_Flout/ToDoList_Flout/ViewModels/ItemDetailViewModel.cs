@@ -29,8 +29,8 @@ namespace ToDoList_Flout.ViewModels
 
         async Task Save()
         {
-
-            await DataStoreItems.UpdateItemAsync(Item);
+            if (string.IsNullOrWhiteSpace(Item.Text) != true)
+                await DataStoreItems.UpdateItemAsync(Item);
         }
 
     }

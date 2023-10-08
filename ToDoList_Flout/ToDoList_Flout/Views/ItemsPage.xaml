@@ -30,7 +30,7 @@
                         <ViewCell.ContextActions>
                             <MenuItem Text="Вверх" Command="{Binding Source={x:Reference BrowseItemsPage}, Path=BindingContext.MoveToTopCommand}" CommandParameter="{Binding}" />
                             <MenuItem Text="Вниз" Command="{Binding Source={x:Reference BrowseItemsPage}, Path=BindingContext.MoveToBottomCommand}" CommandParameter="{Binding}" />
-                            <MenuItem Text="Удалить" Clicked="" Command="{Binding Source={x:Reference BrowseItemsPage}, Path=BindingContext.RemoveCommand}" CommandParameter="{Binding}" />
+                            <MenuItem Text="Удалить" Clicked="GoToBack" Command="{Binding Source={x:Reference BrowseItemsPage}, Path=BindingContext.RemoveCommand}" CommandParameter="{Binding}" />
                         </ViewCell.ContextActions>
 
 

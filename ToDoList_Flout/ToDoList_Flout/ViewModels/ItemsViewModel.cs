@@ -92,6 +92,8 @@ namespace ToDoList_Flout.ViewModels
             if (Item == null) return;
 
             await DataStoreItems.DeleteItemAsync(Items.IndexOf(Item)+1);
+
+            await ExecuteLoadItemsCommand();
         }
 
         public int GetCurrentID()

@@ -27,15 +27,7 @@
             <Slider Value="{Binding Item.Importance}" Minimum="0" Maximum="5" ValueChanged="Slider_ValueChanged" Margin="0, -10, 0, 0"/>
 
             <Label  Text="Category" Style="{StaticResource LabelStyle}" />
-            <Picker x:Name="PickerCategory" SelectedIndexChanged="PickerCategory_SelectedIndexChanged" SelectedItem="{Binding Item.Category}">
-                <Picker.Items>
-                    <x:String>Defaut</x:String>
-                    <x:String>Personal</x:String>
-                    <x:String>Purchases</x:String>
-                    <x:String>Work</x:String>
-                    <x:String>Wish List</x:String>
-                    <x:String>Study</x:String>
-                </Picker.Items>
+            <Picker x:Name="PickerCategory" SelectedItem="{Binding Item.Category}">
             </Picker>
         </StackLayout>
     </ScrollView>

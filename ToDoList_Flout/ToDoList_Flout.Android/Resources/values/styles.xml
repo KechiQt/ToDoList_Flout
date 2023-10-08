@@ -32,7 +32,7 @@
   </style>
 
   <style name="AppCompatDialogStyle" parent="Theme.AppCompat.Light.Dialog">
-    <item name="colorAccent">#FF4081</item>
+    <item name="colorAccent">#c88fbb</item>
   </style>
 
   <color name="ListViewSelected">#856e85</color>

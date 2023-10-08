@@ -5,6 +5,8 @@ using Xamarin.Forms.Xaml;
 
 using ToDoList_Flout.Models;
 using ToDoList_Flout.ViewModels;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ToDoList_Flout.Views
 {
@@ -12,6 +14,8 @@ namespace ToDoList_Flout.Views
     public partial class ItemDetailPage : ContentPage
     {
         ItemDetailViewModel viewModel;
+        private CategoriesViewModel categoryViewModel;
+
 
         public Item Item { get; set; }
 
@@ -21,6 +25,12 @@ namespace ToDoList_Flout.Views
             InitializeComponent();
 
             BindingContext = this.viewModel = viewModel;
+            Item = viewModel.Item;
+
+            categoryViewModel = new CategoriesViewModel();
+
+            LoadCategories();
+
         }
 
         public ItemDetailPage()
@@ -33,8 +43,49 @@ namespace ToDoList_Flout.Views
 
             viewModel = new ItemDetailViewModel(Item);
             BindingContext = viewModel;
+
+            categoryViewModel = new CategoriesViewModel();
+
+            LoadCategories();
         }
-        
+
+        async void LoadCategories()
+        {
+            try
+            {
+                var categories = await categoryViewModel.DataStoreCategories.GetItemsAsync(true);
+
+                List<string> CategoriesTitle = new List<string>();
+
+                int SelectedIndex = 0;
+                int i = 0;
+                foreach (var category in categories)
+                {
+                    CategoriesTitle.Add(category.Title);
+
+                    if (category.Title == Item.Category)
+                        SelectedIndex = i;
+
+                    i += 1;
+                }
+
+                PickerCategory.ItemsSource = CategoriesTitle;
+
+                if (CategoriesTitle.Count > 0)
+                    PickerCategory.SelectedIndex = SelectedIndex;
+
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+
         public void DatePicker_DateSelected(object sender, DateChangedEventArgs e)
         {
             //if (label != null)
@@ -58,7 +109,16 @@ namespace ToDoList_Flout.Views
 
         async void GoToBack(object sender, EventArgs e)
         {
-            await Navigation.PopAsync();
+            if (Item != null) {
+                if (string.IsNullOrWhiteSpace(viewModel.Item.Text) != true)
+                {
+                    await Navigation.PopAsync();
+                }
+                else
+                {
+                    await DisplayAlert("Alert", "Fill in the task name!", "OK");
+                }
+            }
         }
 
 

@@ -49,5 +49,11 @@ namespace ToDoList_Flout.Views
             //if (viewModel.Items.Count == 0)
             viewModel.LoadItemsCommand.Execute(null);
         }
+
+        void GoToBack(object sender, EventArgs e)
+        {
+            MessagingCenter.Send(this, "Upload", true);
+        }
+
     }
 }
