@@ -9,7 +9,7 @@
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="UWP" Value="add.png"/>
+                    <On Platform="Android" Value="add.png"/>
                 </OnPlatform>
             </ToolbarItem.Icon>
         </ToolbarItem>
@@ -30,16 +30,16 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.ContextActions>
-                            <MenuItem Text="Вверх" Command="{Binding Source={x:Reference BrowseCategoriesPage}, Path=BindingContext.MoveToTopCommand}" CommandParameter="{Binding}" />
-                            <MenuItem Text="Вниз" Command="{Binding Source={x:Reference BrowseCategoriesPage}, Path=BindingContext.MoveToBottomCommand}" CommandParameter="{Binding}" />
-                            <MenuItem Text="Удалить" Command="{Binding Source={x:Reference BrowseCategoriesPage}, Path=BindingContext.RemoveCommand}" CommandParameter="{Binding}" />
+                            <MenuItem Text="Up" Command="{Binding Source={x:Reference BrowseCategoriesPage}, Path=BindingContext.MoveToTopCommand}" CommandParameter="{Binding}" />
+                            <MenuItem Text="Down" Command="{Binding Source={x:Reference BrowseCategoriesPage}, Path=BindingContext.MoveToBottomCommand}" CommandParameter="{Binding}" />
+                            <MenuItem Text="Delete" Command="{Binding Source={x:Reference BrowseCategoriesPage}, Path=BindingContext.RemoveCommand}" CommandParameter="{Binding}" />
                         </ViewCell.ContextActions>
 
                         <ViewCell.View>
                             <StackLayout Padding="10">
                                 <Label Text="{Binding Title}" 
                                 LineBreakMode="NoWrap" 
-                                Style="{DynamicResource ListItemTextStyle}" 
+                                Style="{DynamicResource LabelStyle}" 
                                 FontSize="16" />
                                 <Label Text="{Binding Description}" 
                                 LineBreakMode="NoWrap"

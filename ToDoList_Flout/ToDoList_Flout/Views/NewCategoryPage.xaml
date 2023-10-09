@@ -8,14 +8,14 @@
         <ToolbarItem Text="Cancel" Clicked="Cancel_Clicked">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="UWP" Value="cancel.png"/>
+                    <On Platform="Android" Value="cancel.png"/>
                 </OnPlatform>
             </ToolbarItem.Icon>
         </ToolbarItem>
-        <ToolbarItem Text="Save" Clicked="Save_Clicked">
+        <ToolbarItem x:Name="ButtonSave" Text="Save" Clicked="Save_Clicked">
             <ToolbarItem.Icon>
                 <OnPlatform x:TypeArguments="FileImageSource">
-                    <On Platform="UWP" Value="save.png"/>
+                    <On Platform="Android" Value="save.png"/>
                 </OnPlatform>
             </ToolbarItem.Icon>
         </ToolbarItem>
@@ -23,18 +23,24 @@
 
     <ContentPage.Content>
         <ScrollView>
-            <StackLayout Spacing="20" Padding="15">
-                <Label Text="Category title:" Style="{StaticResource LabelStyle}" />
-                <Entry Text="{Binding Category.Title}" Placeholder="Category name" FontSize="Small" Margin="0, -10, 0, 0"/>
-
-                <Label Text="Describe the details" Style="{StaticResource LabelStyle}" />
-                <Editor Text="{Binding Category.Description}" Placeholder="Enter the category details here." FontSize="Small" Margin="0, -10, 0, 0"/>
-
-                <StackLayout Orientation="Horizontal" Spacing="5" Padding="0">
-                    <Label Text="Success rate :" Style="{StaticResource LabelStyle}" />
-                    <Label x:Name="LabelSuccessRate" Text="{Binding Category.SuccessRate}" FontSize="{StaticResource HeaderFontSize}" TextColor="White" Margin="5, 0, 0, 0"/>
+            <StackLayout x:Name="PanelPage" Spacing="20" Padding="15">
+                <StackLayout x:Name="TaskTitle">
+                    <Label Text="Category title:" Style="{StaticResource LabelStyle}" />
+                    <Entry Text="{Binding Category.Title}" Placeholder="Category name" FontSize="Small" Margin="0, -10, 0, 0"/>
                 </StackLayout>
-                <Slider Value="{Binding Category.SuccessRate}" Minimum="0" Maximum="100" ValueChanged="Slider_ValueChanged" Margin="0, -10, 0, 0"/>
+
+                <StackLayout x:Name="TaskDescription">
+                    <Label Text="Describe the details" Style="{StaticResource LabelStyle}" />
+                    <Editor Text="{Binding Category.Description}" Placeholder="Enter the category details here." FontSize="Small" Margin="0, -10, 0, 0"/>
+                </StackLayout>
+
+                <StackLayout x:Name="TaskImportance">
+                    <StackLayout Orientation="Horizontal" Spacing="5" Padding="0">
+                        <Label Text="Success rate :" Style="{StaticResource LabelStyle}" />
+                        <Label x:Name="LabelSuccessRate" Text="{Binding Category.SuccessRate}" FontSize="{StaticResource HeaderFontSize}" TextColor="White" Margin="5, 0, 0, 0"/>
+                    </StackLayout>
+                    <Slider Value="{Binding Category.SuccessRate}" Minimum="0" Maximum="100" ValueChanged="Slider_ValueChanged" Margin="0, -10, 0, 0"/>
+                </StackLayout>
 
             </StackLayout>
         </ScrollView>

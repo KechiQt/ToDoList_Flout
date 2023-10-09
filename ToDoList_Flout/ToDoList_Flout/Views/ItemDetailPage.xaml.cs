@@ -7,6 +7,7 @@ using ToDoList_Flout.Models;
 using ToDoList_Flout.ViewModels;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace ToDoList_Flout.Views
 {
@@ -16,6 +17,7 @@ namespace ToDoList_Flout.Views
         ItemDetailViewModel viewModel;
         private CategoriesViewModel categoryViewModel;
 
+        bool PanelIsShow = false;
 
         public Item Item { get; set; }
 
@@ -31,7 +33,40 @@ namespace ToDoList_Flout.Views
 
             LoadCategories();
 
+            this.SizeChanged += (object sender, EventArgs e) =>
+            {
+                this.HideSlidingPanel();
+            };
         }
+
+        private async void HideSlidingPanel()
+        {
+            TaskTitle.TranslationX = this.Width;
+            TaskDescription.TranslationX = this.Width;
+            TaskDate.TranslationX = this.Width;
+            TaskImportance.TranslationX = this.Width;
+            TaskCategory.TranslationX = this.Width;
+
+            await WaitAndExecute(50, () => {
+                АnimatedРage();
+                PanelIsShow = !PanelIsShow;
+            }); 
+         }
+
+        protected async Task WaitAndExecute(int milisec, Action actionToExecute)
+        {
+            await Task.Delay(milisec); actionToExecute();
+        }
+
+        private async void АnimatedРage()
+        {
+            await TaskTitle.TranslateTo(this.Width - PanelPage.Width, 0, 150, Easing.SinInOut);
+            await TaskDescription.TranslateTo(this.Width - PanelPage.Width, 0, 130, Easing.SinInOut);
+            await TaskDate.TranslateTo(this.Width - PanelPage.Width, 0, 110, Easing.SinInOut);
+            await TaskImportance.TranslateTo(this.Width - PanelPage.Width, 0, 100, Easing.SinInOut);
+            await TaskCategory.TranslateTo(this.Width - PanelPage.Width, 0, 90, Easing.SinInOut);
+        }
+
 
         public ItemDetailPage()
         {
@@ -121,6 +156,9 @@ namespace ToDoList_Flout.Views
             }
         }
 
-
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+        }
     }
 }

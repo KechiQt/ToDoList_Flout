@@ -20,6 +20,7 @@ namespace ToDoList_Flout.Views
 
         private CategoriesViewModel viewModel;
         //private IEnumerable<Category> categories;
+        bool PanelIsShow = false;
 
 
         public NewItemPage(ItemsViewModel itemsViewModel)
@@ -39,6 +40,39 @@ namespace ToDoList_Flout.Views
 
             BindingContext = this;
             LoadCategories();
+
+            this.SizeChanged += (object sender, EventArgs e) =>
+            {
+                this.HideSlidingPanel();
+            };
+        }
+
+        private async void HideSlidingPanel()
+        {
+            TaskTitle.TranslationX = this.Width;
+            TaskDescription.TranslationX = this.Width;
+            TaskDate.TranslationX = this.Width;
+            TaskImportance.TranslationX = this.Width;
+            TaskCategory.TranslationX = this.Width;
+
+            await WaitAndExecute(50, () => {
+                АnimatedРage();
+                PanelIsShow = !PanelIsShow;
+            });
+        }
+
+        protected async Task WaitAndExecute(int milisec, Action actionToExecute)
+        {
+            await Task.Delay(milisec); actionToExecute();
+        }
+
+        private async void АnimatedРage()
+        {
+            await TaskTitle.TranslateTo(this.Width - PanelPage.Width, 0, 150, Easing.SinInOut);
+            await TaskDescription.TranslateTo(this.Width - PanelPage.Width, 0, 130, Easing.SinInOut);
+            await TaskDate.TranslateTo(this.Width - PanelPage.Width, 0, 110, Easing.SinInOut);
+            await TaskImportance.TranslateTo(this.Width - PanelPage.Width, 0, 100, Easing.SinInOut);
+            await TaskCategory.TranslateTo(this.Width - PanelPage.Width, 0, 90, Easing.SinInOut);
         }
 
         async void LoadCategories()

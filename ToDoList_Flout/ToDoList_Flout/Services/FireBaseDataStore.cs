@@ -17,7 +17,6 @@ namespace ToDoList_Flout.Services
         FirebaseClient firebase = new FirebaseClient("https://todo-base-19054-default-rtdb.europe-west1.firebasedatabase.app/");
 
         int databaseId;
-        Random _random;
 
 
         public FireBaseDataStore()

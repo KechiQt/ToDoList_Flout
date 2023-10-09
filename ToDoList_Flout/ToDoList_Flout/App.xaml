@@ -23,16 +23,16 @@
             </Style>
 
             <Color x:Key="NeutralDark">#1c1c1d</Color>
-            <Color x:Key="PlaceholderColor">#ede1ed</Color>
+            <Color x:Key="PlaceholderColor">#d5cbd5</Color>
 
             <Style TargetType="Page" ApplyToDerivedTypes="True">
                 <Setter Property="BackgroundColor" Value="{StaticResource NeutralDark}"/>
             </Style>
 
             <Style TargetType="Slider" ApplyToDerivedTypes="True">
-                <Setter Property="MinimumTrackColor" Value="{StaticResource Key=LightGreanColor}"/>
+                <Setter Property="MinimumTrackColor" Value="{StaticResource Key=HeaderTextColor}"/>
                 <Setter Property="MaximumTrackColor" Value="{StaticResource Key=LightGreanColor}"/>
-                <Setter Property="ThumbColor" Value="{StaticResource Key=LightGreanColor}"/>
+                <Setter Property="ThumbColor" Value="{StaticResource Key=HeaderTextColor}"/>
             </Style>
 
             <Style TargetType="Label">

@@ -7,28 +7,38 @@
         <ToolbarItem Text="Delete" Clicked="GoToBack" Command="{Binding DeleteCommand}"/>
         <ToolbarItem Text="Save" Clicked="GoToBack" Command="{Binding SaveCommand}"/>
     </ContentPage.ToolbarItems>
-    
+
     <ScrollView>
-        <StackLayout Spacing="20" Padding="15">
-            <Label Text="Task title:" Style="{StaticResource LabelStyle}" />
-            <Entry Text="{Binding Item.Text}" Placeholder="Task name" FontSize="Small" Margin="0, -10, 0, 0"/>
-            
-            <Label Text="What should be done?" Style="{StaticResource LabelStyle}" />
-            <Editor Text="{Binding Item.Description}" Placeholder="Enter the task here." FontSize="Small" Margin="0, -10, 0, 0"/>
-
-            <Label x:Name="label" Text="Select date" Style="{StaticResource LabelStyle}" />
-            <DatePicker Format="D" Date="{Binding Item.Date}" DateSelected="DatePicker_DateSelected" Margin="0, -20, 0, 0">
-            </DatePicker>
-
-            <StackLayout Orientation="Horizontal" Spacing="5" Padding="0">
-                <Label Text="Importance" Style="{StaticResource LabelStyle}" />
-                <Label x:Name="LabelImportance" Text="{Binding Item.Importance}" FontSize="{StaticResource HeaderFontSize}" TextColor="White" Margin="5, 0, 0, 0"/>
+        <StackLayout x:Name="PanelPage" Spacing="20" Padding="15">
+            <StackLayout x:Name="TaskTitle">
+                <Label Text="Task title:" Style="{StaticResource LabelStyle}" />
+                <Entry Text="{Binding Item.Text}" Placeholder="Task name" FontSize="Small" Margin="0, -10, 0, 0"/>
             </StackLayout>
-            <Slider Value="{Binding Item.Importance}" Minimum="0" Maximum="5" ValueChanged="Slider_ValueChanged" Margin="0, -10, 0, 0"/>
 
-            <Label  Text="Category" Style="{StaticResource LabelStyle}" />
-            <Picker x:Name="PickerCategory" SelectedItem="{Binding Item.Category}">
-            </Picker>
+            <StackLayout x:Name="TaskDescription">
+                <Label Text="What should be done?" Style="{StaticResource LabelStyle}" />
+                <Editor Text="{Binding Item.Description}" Placeholder="Enter the task here." FontSize="Small" Margin="0, -10, 0, 0"/>
+            </StackLayout>
+
+            <StackLayout x:Name="TaskDate">
+                <Label x:Name="label" Text="Select date" Style="{StaticResource LabelStyle}" />
+                <DatePicker Format="D" Date="{Binding Item.Date}" DateSelected="DatePicker_DateSelected" Margin="0, -20, 0, 0">
+                </DatePicker>
+            </StackLayout>
+
+            <StackLayout x:Name="TaskImportance">
+                <StackLayout Orientation="Horizontal" Spacing="5" Padding="0">
+                    <Label Text="Importance" Style="{StaticResource LabelStyle}" />
+                    <Label x:Name="LabelImportance" Text="{Binding Item.Importance}" FontSize="{StaticResource HeaderFontSize}" TextColor="White" Margin="5, 0, 0, 0"/>
+                </StackLayout>
+                <Slider Value="{Binding Item.Importance}" Minimum="0" Maximum="5" ValueChanged="Slider_ValueChanged" Margin="0, -10, 0, 0"/>
+            </StackLayout>
+
+            <StackLayout x:Name="TaskCategory">
+                <Label  Text="Category" Style="{StaticResource LabelStyle}" />
+                <Picker x:Name="PickerCategory" SelectedItem="{Binding Item.Category}">
+                </Picker>
+            </StackLayout>
         </StackLayout>
     </ScrollView>
 </ContentPage>

@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using ToDoList_Flout.Models;
-using ToDoList_Flout.Views;
 using ToDoList_Flout.ViewModels;
 
 namespace ToDoList_Flout.Views
@@ -23,6 +18,17 @@ namespace ToDoList_Flout.Views
             InitializeComponent();
 
             BindingContext = viewModel = new ItemsViewModel();
+
+            this.SizeChanged += (object sender, EventArgs e) =>
+            {
+                Console.WriteLine("size changed");
+                this.Start();
+            };
+        }
+
+        private void Start()
+        {
+            
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
@@ -44,15 +50,12 @@ namespace ToDoList_Flout.Views
 
         protected override void OnAppearing()
         {
+
+
             base.OnAppearing();
 
             //if (viewModel.Items.Count == 0)
             viewModel.LoadItemsCommand.Execute(null);
-        }
-
-        void GoToBack(object sender, EventArgs e)
-        {
-            MessagingCenter.Send(this, "Upload", true);
         }
 
     }
