@@ -30,9 +30,9 @@
                 <DataTemplate>
                     <ViewCell>
                         <ViewCell.ContextActions>
-                            <MenuItem Text="Up" Command="{Binding Source={x:Reference BrowseCategoriesPage}, Path=BindingContext.MoveToTopCommand}" CommandParameter="{Binding}" />
-                            <MenuItem Text="Down" Command="{Binding Source={x:Reference BrowseCategoriesPage}, Path=BindingContext.MoveToBottomCommand}" CommandParameter="{Binding}" />
-                            <MenuItem Text="Delete" Command="{Binding Source={x:Reference BrowseCategoriesPage}, Path=BindingContext.RemoveCommand}" CommandParameter="{Binding}" />
+                            <MenuItem Text="Up" Command="{Binding Source={x:Reference BrowseCategoriesPage}, Path=BindingContext.MoveToTopCommand}" CommandParameter="{Binding}" Icon="up.png"/>
+                            <MenuItem Text="Down" Command="{Binding Source={x:Reference BrowseCategoriesPage}, Path=BindingContext.MoveToBottomCommand}" CommandParameter="{Binding}" Icon="down.png"/>
+                            <MenuItem Text="Delete" Command="{Binding Source={x:Reference BrowseCategoriesPage}, Path=BindingContext.RemoveCommand}" CommandParameter="{Binding}" Icon="delete.png"/>
                         </ViewCell.ContextActions>
 
                         <ViewCell.View>

@@ -9,7 +9,7 @@ using Android.App;
 [assembly: AssemblyTitle("ToDoList_Flout.Android")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("KechiQt")]
 [assembly: AssemblyProduct("ToDoList_Flout.Android")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
@@ -30,5 +30,5 @@ using Android.App;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 
 // Add some common permissions, these can be removed if not needed
-[assembly: UsesPermission(Android.Manifest.Permission.Internet)]
-[assembly: UsesPermission(Android.Manifest.Permission.WriteExternalStorage)]
+//[assembly: UsesPermission(Android.Manifest.Permission.Internet)]
+//[assembly: UsesPermission(Android.Manifest.Permission.WriteExternalStorage)]

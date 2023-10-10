@@ -4,8 +4,8 @@
              x:Class="ToDoList_Flout.Views.ItemDetailPage"
              Title="{Binding Title}">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Delete" Clicked="GoToBack" Command="{Binding DeleteCommand}"/>
-        <ToolbarItem Text="Save" Clicked="GoToBack" Command="{Binding SaveCommand}"/>
+        <ToolbarItem Text="Delete" Clicked="GoToBack" Command="{Binding DeleteCommand}" Icon="save.png"/>
+        <ToolbarItem Text="Save" Clicked="GoToBack" Command="{Binding SaveCommand}" Icon="delete.png"/>
     </ContentPage.ToolbarItems>
 
     <ScrollView>
